@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_DB: jobs_auth
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: sqladmin
+    ports:
+      - "5432:5432"

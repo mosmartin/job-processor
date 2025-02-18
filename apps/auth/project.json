@@ -6,21 +6,30 @@
   "tags": [],
   "targets": {
     "build": {
+      "dependsOn": [
+        "db:generate"
+      ],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
-        "args": ["node-env=production"]
+        "args": [
+          "node-env=production"
+        ]
       },
       "configurations": {
         "development": {
-          "args": ["node-env=development"]
+          "args": [
+            "node-env=development"
+          ]
         }
       }
     },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "auth:build",
         "runBuildTargetDependencies": false
@@ -37,6 +46,18 @@
     "test": {
       "options": {
         "passWithNoTests": true
+      }
+    },
+    "db:generate": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/auth"
+      }
+    },
+    "db:migrate:dev": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "apps/auth"
       }
     }
   }
