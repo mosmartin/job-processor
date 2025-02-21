@@ -6,30 +6,22 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": [
-        "db:generate"
-      ],
+      "dependsOn": ["db:generate"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
-        "args": [
-          "node-env=production"
-        ]
+        "args": ["node-env=production"]
       },
       "configurations": {
         "development": {
-          "args": [
-            "node-env=development"
-          ]
+          "args": ["node-env=development"]
         }
       }
     },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "auth:build",
         "runBuildTargetDependencies": false
@@ -44,6 +36,7 @@
       }
     },
     "test": {
+      "dependsOn": ["db:generate"],
       "options": {
         "passWithNoTests": true
       }

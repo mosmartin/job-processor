@@ -13,11 +13,7 @@ describe('UsersService', () => {
           provide: PrismaService,
           useValue: {
             user: {
-              findMany: jest.fn(),
-              findUnique: jest.fn(),
-              create: jest.fn(),
-              update: jest.fn(),
-              delete: jest.fn(),
+              // Mock the methods you use in your service
             },
           },
         },
