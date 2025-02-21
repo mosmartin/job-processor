@@ -41,7 +41,8 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
-# Local env files
+# env
 .env
-.env.*.local.env
+apps/auth/.env
+**/*.env
 *.env
