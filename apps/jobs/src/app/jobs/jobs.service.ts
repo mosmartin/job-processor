@@ -19,6 +19,8 @@ export class JobsService implements OnModuleInit {
   }
 
   getJobs(): DiscoveredClassWithMeta<AbstractJob>[] {
-    return this.jobs;
+    return this.jobs.map(
+      (job) => job.meta as DiscoveredClassWithMeta<AbstractJob>
+    );
   }
 }
